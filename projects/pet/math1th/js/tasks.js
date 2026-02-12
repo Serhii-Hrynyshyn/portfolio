@@ -76,7 +76,8 @@ function setTask() {
         case 'several_combination_till10': several_combination_till10(); break
         case 'several_combination_till100': several_combination_till100(); break
 
-        case 'two_comparison_till100':  two_comparison_till100(); break
+        case 'two_comparison_till10':  two_comparison_till100(10); break
+        case 'two_comparison_till100':  two_comparison_till100(100); break
     }
 
 
@@ -227,12 +228,11 @@ function several_combination_till100() {
 
 
 //create a logic task value like as: ` 72 > 64 `
-function two_comparison_till100() {
-    // alert('ol');
-    firstValue = randomizer(0, 100);
-    secondValue = randomizer(0, 100);
+export function two_comparison_till100(max) {
+    firstValue = randomizer(0, max);
+    secondValue = randomizer(0, max);
     let tmp_choise = randomizer(0, 2);
-    legend.innerHTML = `Порівняння двох чисел у межах 100, де - 1 так а 0 - ні(завдання№ ${attempt - 1})`;
+    legend.innerHTML = `Порівняння двох чисел у межах ${max}, де - 1 так а 0 - ні(завдання№ ${attempt - 1})`;
     switch (tmp_choise){
         case 0: {
             sign = '<'; 
@@ -258,16 +258,10 @@ function two_comparison_till100() {
         }
     }
 
-    alert(`${firstValue}${sign}${secondValue}`);
-    // if (`${firstValue}${sign}${secondValue}`){
-    //     alert('is ttrue');
-    //     result = 1;
-    // }
+ 
 
     taskField.innerHTML = `${firstValue} ${sign} ${secondValue}`;
-    // if (firstValue > secondValue){
-
-    // }
+    
 
 }
 

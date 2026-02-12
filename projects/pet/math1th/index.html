@@ -1,36 +1,47 @@
 <!DOCTYPE html>
-<html lang="X-UA-Compatible">
+<html lang="uk">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Математика: 1-ий клас</title>
+    <meta name="description" content="Інтерактивна математична платформа для учнів 1-го класу. Вправи на додавання, віднімання та логічне мислення.">
+    <meta name="theme-color" content="#0066cc">
+    <title>Математика: 1-ий клас - Навчальна платформа</title>
     <link rel="stylesheet" href="./styles/style.css">
-    <script src="./js/index.js" type="module"></script>
 
+    <script src="./js/index.js" type="module"> </script>
+   
+    
+    
+ 
 </head>
 
 <body>
+    
+
     <div class="wrapper">
-        <div class="aside">
-            <div class="logo">
-                <h1>Математика</h1>
+        <aside class="aside" role="complementary">
+            <section class="logo">
+                <h1>📐 Математика</h1>
                 <h2>1-ий клас</h2>
-            </div>
-            <div class="authentification">
+            </section>
+            <section class="authentification">
                 <form class="authent-form" method="GET" action="./two_additions_till10.html">
                     <fieldset>
-                    <legend>Авторизація для надсилання результатів</legend>
-                    <input type="text" placeholder="Прізвище та ім'я учня" class="student-name" name = "s-name" >
-                    <input type="text" placeholder="Електронна адреса учителя" class="teacher-email">
-                    <label class="labelForCheckBox"><input type="checkbox" class="form-checkbox"> результати надсилатимуться</label>
+                        <legend>🔐 Авторизація</legend>
+                        <input type="text" placeholder="Прізвище та ім'я учня" class="student-name" name="s-name">
+                        <input type="email" placeholder="Email учителя" class="teacher-email">
+                        <label class="labelForCheckBox">
+                            <input type="checkbox" class="form-checkbox">
+                            результати надсилатимуться
+                        </label>
                     </fieldset>
                 </form>
-            </div>
-            <div class="actions">
-                <ul class="rubricator">Арифметичні завдання
-                    <ul class="sub-rubricator">Додавання:
+            </section>
+            <nav class="actions" role="navigation">
+                <ul class="rubricator">✏️ Арифметичні завдання
+                    <ul class="sub-rubricator">➕ Додавання:
                         <li class="menuLi">
                             <a href="" class="two_additions_till10">двох чисел у межах 10</a>
                         </li>
@@ -45,7 +56,7 @@
                         </li>
 
                     </ul>
-                    <ul class="sub-rubricator">Віднімання:
+                    <ul class="sub-rubricator">➖ Віднімання:
                         <li>
                             <a href="#" class="two_substraction_till10">двох чисел у межах 10</a>
                         </li>
@@ -59,22 +70,20 @@
                             <a href="#" class="several_substraction_till100">кількох чисел у межах 100</a>
                         </li>
                     </ul>
-                    <ul class="sub-rubricator">Комбінування:
+                    <ul class="sub-rubricator">🎯 Комбінування:
                         <li>
-                            <a href="#" class="several_combination_till10">двох дій у межах 10</a>
+                            <a href="#" class="several_combination_till100">двох дій у межах 10</a>
                         </li>
                         <li>
                             <a href="#" class="several_combination_till100">двох дій у межах 100</a>
                         </li>
                     </ul>
 
-                   
-
                 </ul>
-                <ul class="rubricator">Логічні завдання
-                    <ul class="sub-rubricator">Порівняння:
+                <ul class="rubricator" >🧠 Логічні завдання
+                    <ul class="sub-rubricator">⚖️ Порівняння:
                         <li>
-                            <a href="#">двох чисел у межах 10</a>
+                            <a href="" class="two_comparison_till10">двох чисел у межах 10</a>
                         </li>
                         <li>
                             <a href="" class="two_comparison_till100">двох чисел у межах 100</a>
@@ -82,15 +91,11 @@
                     </ul>
                 </ul>
 
-            </div>
-            <div class="settings">
-
-            </div>
-
-        </div>
-        <div class="content">
+            </nav>
+        </aside>
+        <main class="content" role="main">
             <p class="example0">
-                Приклади завдань:
+                📋 Приклади завдань:
             </p>
             <p class="example example1">
                 2 + 2 = 4
@@ -122,21 +127,24 @@
             <p class="example example10">
                 77 - 68 + 36 = 45
             </p>
-        </div>
+        </main>
     </div>
-    <footer>
-        <div class="author-info">2022 Сергій Гринишин</div>
+    <footer role="contentinfo">
+        <div class="author-info">© 2026 Сергій Гринишин</div>
         <div class="author-contact">
-            <div class="author-email"><a href="mailto:serhii.hrynyshyn80@gmail.com">serhii.hrynyshyn80@gmail.com</a></div>
-            <div class="author-twitter"><a href="https://sergfreeman.github.io/portfolio/">sergfreeman.github.io/portfolio</a></div>
+            <div class="author-email"><a href="mailto:serhii.hrynyshyn80@gmail.com">✉️ Email</a></div>
+            <div class="author-twitter"><a href="https://sergfreeman.github.io/portfolio/">🌐 Портфоліо</a></div>
         </div>
         <div class="address">
-            Україна, м.Київ, 02098
+            Україна, м.Київ
         </div>
-
-
     </footer>
 
+
+    <script src="./js/tasks.js" type="module"> 
+    import { two_comparison_till100 } from './js/tasks.js';
+    
+    </script>
 </body>
 
 </html>

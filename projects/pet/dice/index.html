@@ -4,57 +4,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Dice</title>
+    <meta name="description" content="Virtual dice emulator supporting 1-6 faces with customizable themes and shapes">
+    <meta name="theme-color" content="#1a1a2e">
+    <title>Dice Emulator - Virtual Dice Roller</title>
     <link rel="stylesheet" href="./css/style.css">
     <script type="module" src="./script/dice.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Changa+One&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
     <div class="unsupport-alert">
-        <p>
-            Warning: Device resolution is not supported
-        </p>
+        <p>Warning: Device resolution is not supported</p>
     </div>
     <header>
-        <h1>
-            Dice emulator
-        </h1>
+        <h1>🎲 Dice Emulator</h1>
     </header>
 
-    <nav class="nav">
-        <ul class="menu-but settings" id="settings">Settings
-            <ul class="skin" id="skin">Skin:
-                <li id="darck">dark model</li>
-                <li id="white">white model</li>
+    <nav class="nav" role="navigation">
+        <div class="menu-but settings" id="settings">
+            <strong>⚙️ Settings</strong>
+            <ul class="skin" id="skin">
+                <strong>🎨 Skin:</strong>
+                <li id="darck">🌙 Dark Mode</li>
+                <li id="white">☀️ Light Mode</li>
             </ul>
-            <ul class="signature" id="signature">Figure:
-                <li id="cube">cube</li>
-                <li id="circle">circle</li>
+            <ul class="signature" id="signature">
+                <strong>📐 Shape:</strong>
+                <li id="cube">📦 Cube</li>
+                <li id="circle">⭕ Circle</li>
             </ul>
+        </div>
 
-        </ul>
-        <ul class="menu-but info" id="info">Info
-            <li id="how">how to use</li>
-            <li id="imp">implement</li>
-        </ul>
-        <ul class="menu-but contact" id="contact">Contact
-            <li id="mail">mail to author</li>
-            <li id="site">to the author's PET</li>
-        </ul>
+        <div class="menu-but info" id="info">
+            <strong>ℹ️ Info</strong>
+            <li id="how">📖 How to Use</li>
+            <li id="imp">💡 About Dice</li>
+        </div>
+
+        <div class="menu-but contact" id="contact">
+            <strong>📧 Contact</strong>
+            <li id="mail">✉️ Email Author</li>
+            <li id="site">🌐 Author's Portfolio</li>
+        </div>
     </nav>
     <div class="wrapper">
-
         <div id="message">
-            <button class="closeButton">X</button>
+            <button class="closeButton">✕</button>
             <p id="messageP"></p>
         </div>
-        <div id="main">
-
-            <br>
-            <table id="table">
+        <div id="main" role="main">
+            <table id="table" role="presentation">
                 <tr>
                     <td id="id1" class="cells"></td>
                     <td id="id2" class="cells"></td>
@@ -71,10 +71,9 @@
                     <td id="id9" class="cells"></td>
                 </tr>
             </table>
-            <button id="getRandom" type="button">throw</button>
+            <button id="getRandom" type="button">🎰 Roll Dice</button>
         </div>
     </div>
 </body>
-</script>
 
 </html>

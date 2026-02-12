@@ -40,3 +40,6 @@ menuOptions.forEach(element => {
 });
 
 
+ function eleven() {
+    alert('11');
+}
