@@ -1,38 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Розв'яжи математичне завдання">
     <link href="./styles/tasks-style.css" rel="stylesheet">
     <script src="./js/tasks.js" type="module"></script>
-    <title>Document</title>
+    <title>Математичне завдання</title>
 </head>
 <body>
     <div class="wrapper">
-
         <div class="container">
-            <form>
+            <form class="task-form">
                 <fieldset>
-                    <legend>Додавання двох чисел у межах 10 (завдання№<span></span>)</legend>
-                    <div>
-                        <label class="label-tasc-one"></label>
-                        <input class="answer" type="text" required autofocus maxlength="3" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
+                    <legend>
+                        <span class="legend-icon">📐</span>
+                        Операція з числами
+                        <span class="task-counter">(завдання № <span class="counter-value">1</span>)</span>
+                    </legend>
+                    <div class="form-group">
+                        <div class="task-display">
+                            <label class="label-tasc-one"></label>
+                            <input class="answer" type="text" placeholder="?" required autofocus maxlength="3" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
+                        </div>
                     </div>
-                    
                 </fieldset>
-                <button type="button" title="Відповісти на завдання">Відповісти</button>
-                
-                <!-- <textarea class="resultReport">
-
-                </textarea> -->
+                <button type="button" class="submit-btn" title="Відповісти на завдання">
+                    <span class="btn-text">Відповісти</span>
+                    <span class="btn-icon">✓</span>
+                </button>
             </form>
-            
         </div>
-
     </div>
-
-   
-    
 </body>
 </html>

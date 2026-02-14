@@ -1,60 +1,62 @@
 <!DOCTYPE html>
-<html lang="ua">
+<html lang="uk">
 
 <head>
     <meta charset="UTF-8">
     <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Українські народні пісні</title>
+    <meta name="description" content="Колекція українських народних пісень з аудіо">
+    <meta name="theme-color" content="#003d99">
+    <title>Українські народні пісні | Музично-культурна спадщина</title>
     <link href="css/styles.css" rel="stylesheet">
     <link href="img/gerb.ico" rel="icon">
     <script type="module" src="js/forUFS.js"></script>
 </head>
 
-<header>
-    <img src="img/trident.gif" alt="Trident">
-    <h1>
-        Українські народні пісні
-    </h1>
-</header>
-<hr>
-<nav class="navigate">
-
-    <button id="index" type="button">Головна сторінка </button>
-    <button id="gimn" type="button">Гімн України</button>
-    <button id="kalyna" type="button">Червона калина</button>
-    <button id="viter" type="button">Пісня Січовиків</button>
-
-</nav>
-
 <body>
-    <hr>
-    <div class="wrapper">
-        <div id="differentPages">
-            <img src="img/gerb.png" class="wallpaper">
+    <header>
+        <div class="header-content">
+            <img src="img/trident.gif" alt="Український тризуб" class="trident-icon">
+            <div class="header-text">
+                <h1>🎵 Українські народні пісні</h1>
+                <p class="header-subtitle">Скарби музичної спадщини України</p>
+            </div>
         </div>
-    </div>
+    </header>
 
-    <hr>
+    <nav class="navigate" role="navigation">
+        <ul class="nav-list">
+            <li><button id="index" type="button" class="nav-btn">🏠 Головна</button></li>
+            <li><button id="gimn" type="button" class="nav-btn">🎼 Гімн України</button></li>
+            <li><button id="kalyna" type="button" class="nav-btn">🌹 Червона калина</button></li>
+            <li><button id="viter" type="button" class="nav-btn">⚔️ Пісня Січовиків</button></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="wrapper">
+            <div id="differentPages" class="content-area">
+                
+            </div>
+        </div>
+    </main>
+
+    <footer role="contentinfo">
+        
+        <div class="footer-content">
+            <div class="footer-author">
+                <span class="footer-year">© 2022-2026 Сергій Гринишин</span>
+            </div>
+            <div class="footer-links">
+                <a href="mailto:hrynyshyn.serhii@gmail.com" class="footer-link" title="Надіслати email">
+                    ✉️ Email
+                </a>
+                <a href="https://sergfreeman.github.io/portfolio/" class="footer-link" title="Відвідати портфоліо">
+                    🌐 Портфоліо
+                </a>
+            </div>
+        </div>
+    </footer>
 </body>
-
-<footer>
-    <div>
-        <ul class="footer-list">Serhii Hrynyshyn 2022: </ul>
-        <li class="footer-list">
-            <a href="mailto:serhii.hrynyshyn80@gmail.com" class="email">
-                maile me
-            </a>
-        </li>
-
-        <li class="footer-list">
-            <a href="https://sergfreeman.github.io/portfolio/" class="email">
-                visit me
-            </a>
-        </li>
-
-    </div>
-
-</footer>
 
 </html>

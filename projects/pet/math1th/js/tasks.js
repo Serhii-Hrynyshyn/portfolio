@@ -1,6 +1,7 @@
 import { randomizer } from './random.js';
 import { currentYear, currentMonth, currentDate, currentHour, currentMinute, currentSecond } from './get_current_time.js';
 
+const MAX_ATTEMPTS = 12;
 
 let firstValue;
 let secondValue;
@@ -12,10 +13,17 @@ let attempt = 1;
 let totalReport = [];
 let score = 0;
 
-let legend = document.querySelector('legend');
-// let attemptCounter = document.querySelector('span');
-let taskField = document.querySelector('.label-tasc-one');
-let answer = document.querySelector('.answer');
+// Helper function to format current timestamp
+function getFormattedTimestamp() {
+    const now = new Date();
+    return `[${currentYear(now)}:${currentMonth(now)}:${currentDate(now)}] [${currentHour(now)}:${currentMinute(now)}:${currentSecond(now)}]`;
+}
+
+const legend = document.querySelector('legend');
+const taskField = document.querySelector('.label-tasc-one');
+const answer = document.querySelector('.answer');
+const button = document.querySelector('button');
+const wrapper = document.querySelector('.wrapper');
 
 //response params (name and email) from index.html
 const urlParams = new URLSearchParams(window.location.search);
@@ -26,62 +34,53 @@ const email = urlParams.get('email');
 //create totalReport array on load page
 window.addEventListener("load", function () {
     totalReport.push(`  Учень: ${name} \n`);
-    totalReport.push
-        (`- початок уроку ([${(currentYear(new Date()))}:${currentMonth(new Date())}:${currentDate(new Date())}] [${currentHour(new Date())}:${currentMinute(new Date())}:${currentSecond(new Date())}]) - \n`);
+    totalReport.push(`- початок уроку ${getFormattedTimestamp()} - \n`);
 });
 
-document.onkeydown = function (event) {
-    if (event.key == 'Enter') {
-        event.preventDefault();
-        checkTask();
-        setTask();
-    }
+// Handle Enter key and button click
+function handleTaskAction() {
+    checkTask();
+    setTask();
 }
 
-
-let button = document.querySelector('button');
+document.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        handleTaskAction();
+    }
+});
 
 setTask();
 
-button.addEventListener('click', function () {
-    checkTask();
-    setTask();
-});
+button.addEventListener('click', handleTaskAction);
 
 
 
 //create task value like as: ` 1 + 5 = `
 function setTask() {
-
-
     attempt++;
     answer.value = '';
     answer.focus();
 
+    const taskConfig = {
+        'two_additions_till10': () => two_additions(10),
+        'two_additions_till100': () => two_additions(100),
+        'several_additions_till10': () => several_additions(10),
+        'several_additions_till100': () => several_additions(100),
+        'two_substraction_till10': () => two_substraction(10),
+        'two_substraction_till100': () => two_substraction(100),
+        'several_substraction_till10': () => several_substraction(10),
+        'several_substraction_till100': () => several_substraction(100),
+        'several_combination_till10': () => several_combination(10),
+        'several_combination_till100': () => several_combination(100),
+        'two_comparison_till10': () => two_comparison(10),
+        'two_comparison_till100': () => two_comparison(100),
+        'ppp': () => ppp()
+    };
 
-    switch (taskType) {
-
-        case 'two_additions_till10': two_additions_till10(); break
-        case 'two_additions_till100': two_additions_till100(); break
-
-        case 'several_additions_till10': several_additions_till10(); break
-        case 'several_additions_till100': several_additions_till100(); break
-
-        case 'two_substraction_till10': two_substraction_till10(); break
-        case 'two_substraction_till100': two_substraction_till100(); break
-
-        case 'several_substraction_till10': several_substraction_till10(); break
-        case 'several_substraction_till100': several_substraction_till100(); break
-
-        case 'several_combination_till10': several_combination_till10(); break
-        case 'several_combination_till100': several_combination_till100(); break
-
-        case 'two_comparison_till10':  two_comparison_till100(10); break
-        case 'two_comparison_till100':  two_comparison_till100(100); break
+    if (taskConfig[taskType]) {
+        taskConfig[taskType]();
     }
-
-
-
 }
 
 //check on correct answer value, write check report
@@ -94,21 +93,18 @@ function checkTask() {
     }
 
 
-    if (attempt > 10) {
-        totalReport.push(`- кінець уроку ([${(currentYear(new Date()))}:${currentMonth(new Date())}:${currentDate(new Date())}] [${currentHour(new Date())}:${currentMinute(new Date())}:${currentSecond(new Date())}]) - \n`);
-        totalReport.push(`      Оцінка(максимум 10 балів): ${score}.`);
-        document.querySelector('.wrapper').remove();
+    if (attempt > MAX_ATTEMPTS) {
+        totalReport.push(`- кінець уроку ${getFormattedTimestamp()} - \n`);
+        totalReport.push(`      Оцінка(максимум ${MAX_ATTEMPTS} балів): ${score}.`);
+        wrapper.remove();
 
 
         //Create DOM obj <textarea> for totalReport visualisation
         let reportArea = document.createElement('textarea');
         reportArea.className = 'reportAreaClass';
         reportArea.rows = '14';
-        reportArea.readOnly = 'true';
-
-        for (let row of totalReport) {
-            reportArea.innerHTML += row;
-        }
+        reportArea.readOnly = true;
+        reportArea.textContent = totalReport.join('');
         document.body.appendChild(reportArea);
 
         //EXIT
@@ -118,7 +114,7 @@ function checkTask() {
 
 //Exiting need 'mouse click' or pressing keyboard button 'Escape'
 function pointOfExit() {
-    // document.body.addEventListener('click', function () { window.close(); })
+    
 
     window.onmousedown = function () {
         window.close();
@@ -130,140 +126,86 @@ function pointOfExit() {
 
 //--------------------EXERCISE PART start--------------------
 
-//create task value like as: ` 1 + 5 = `
-function two_additions_till10() {
-    firstValue = randomizer(0, 10);
-    secondValue = randomizer(0, 10 - firstValue);
+//create task value like as: ` 1 + 5 = ` or ` 17 + 55 = `
+function two_additions(max) {
+    firstValue = randomizer(0, max);
+    secondValue = randomizer(0, max - firstValue);
     result = firstValue + secondValue;
     taskField.innerHTML = `${firstValue} + ${secondValue} =`;
-    legend.innerHTML = `Додавання двох чисел у межах 10 (завдання№ ${attempt - 1})`;
+    legend.innerHTML = `Додавання двох чисел у межах ${max} (завдання№ ${attempt - 1})`;
 }
 
-//create task value like as: ` 17 + 55 = `
-function two_additions_till100() {
-    firstValue = randomizer(0, 100);
-    secondValue = randomizer(0, 100 - firstValue);
-    result = firstValue + secondValue;
-    taskField.innerHTML = `${firstValue} + ${secondValue} =`;
-    legend.innerHTML = `Додавання двох чисел у межах 100 (завдання№ ${attempt - 1})`;
-}
 
-//create task value like as: ` 1 + 5 + 2 = `
-function several_additions_till10() {
-    firstValue = randomizer(0, 10);
-    secondValue = randomizer(0, 10 - firstValue);
-    thirdValue = randomizer(0, 10 - firstValue - secondValue);
+
+//create task value like as: ` 1 + 5 + 2 = ` or ` 17 + 55 + 12 = `
+function several_additions(max) {
+    firstValue = randomizer(0, max);
+    secondValue = randomizer(0, max - firstValue);
+    thirdValue = randomizer(0, max - firstValue - secondValue);
     result = firstValue + secondValue + thirdValue;
     taskField.innerHTML = `${firstValue} + ${secondValue} + ${thirdValue} =`;
-    legend.innerHTML = `Додавання кількох чисел у межах 10 (завдання№ ${attempt - 1})`;
+    legend.innerHTML = `Додавання кількох чисел у межах ${max} (завдання№ ${attempt - 1})`;
 }
 
-//create task value like as: ` 17 + 55 + 12 = `
-function several_additions_till100() {
-    firstValue = randomizer(0, 100);
-    secondValue = randomizer(0, 100 - firstValue);
-    thirdValue = randomizer(0, 100 - firstValue - secondValue);
-    result = firstValue + secondValue + thirdValue;
-    taskField.innerHTML = `${firstValue} + ${secondValue} + ${thirdValue} =`;
-    legend.innerHTML = `Додавання кількох чисел у межах 100 (завдання№ ${attempt - 1})`;
-}
 
-//create task value like as: ` 8 - 5 = `
-function two_substraction_till10() {
-    firstValue = randomizer(0, 10);
+//create task value like as: ` 8 - 5 = ` or ` 17 - 5 = `
+function two_substraction(max) {
+    firstValue = randomizer(0, max);
     secondValue = randomizer(0, firstValue);
     result = firstValue - secondValue;
     taskField.innerHTML = `${firstValue} - ${secondValue} =`;
-    legend.innerHTML = `Віднімання чисел у межах 10 (завдання№ ${attempt - 1})`;
+    legend.innerHTML = `Віднімання чисел у межах ${max} (завдання№ ${attempt - 1})`;
 }
 
-//create task value like as: ` 33 - 12 = `
-function two_substraction_till100() {
-    firstValue = randomizer(0, 100);
-    secondValue = randomizer(0, firstValue);
-    result = firstValue - secondValue;
-    taskField.innerHTML = `${firstValue} - ${secondValue} =`;
-    legend.innerHTML = `Віднімання чисел у межах 100 (завдання№ ${attempt - 1})`;
-}
 
-//create task value like as: ` 10 - 5 - 2 = `
-function several_substraction_till10() {
-    firstValue = randomizer(0, 10);
+//create task value like as: ` 10 - 5 - 2 = ` or ` 17 - 5 - 12 = `
+function several_substraction(max) {
+    firstValue = randomizer(0, max);
     secondValue = randomizer(0, firstValue);
     thirdValue = randomizer(0, firstValue - secondValue);
     result = firstValue - secondValue - thirdValue;
     taskField.innerHTML = `${firstValue} - ${secondValue} - ${thirdValue} =`;
-    legend.innerHTML = `Віднімання кількох чисел у межах 10 (завдання№ ${attempt - 1})`;
+    legend.innerHTML = `Віднімання кількох чисел у межах ${max} (завдання№ ${attempt - 1})`;
 }
 
-//create task value like as: ` 17 - 5 - 12 = `
-function several_substraction_till100() {
-    firstValue = randomizer(0, 100);
-    secondValue = randomizer(0, firstValue);
-    thirdValue = randomizer(0, firstValue - secondValue);
-    result = firstValue - secondValue - thirdValue;
-    taskField.innerHTML = `${firstValue} - ${secondValue} - ${thirdValue} =`;
-    legend.innerHTML = `Віднімання кількох чисел у межах 100 (завдання№ ${attempt - 1})`;
-}
 
-//create task value like as: ` 10 + 5 - 2 = `
-function several_combination_till10() {
-    firstValue = randomizer(0, 10);
-    secondValue = randomizer(0, 10 - firstValue);
+
+//create task value like as: ` 10 + 5 - 2 = ` or ` 17 + 5 - 12 = `
+function several_combination(max) {
+    firstValue = randomizer(0, max);
+    secondValue = randomizer(0, max - firstValue);
     thirdValue = randomizer(0, firstValue + secondValue);
     result = firstValue + secondValue - thirdValue;
     taskField.innerHTML = `${firstValue} + ${secondValue} - ${thirdValue} =`;
-    legend.innerHTML = `Додавання та віднімання кількох чисел у межах 10 (завдання№ ${attempt - 1})`;
+    legend.innerHTML = `Додавання та віднімання кількох чисел у межах ${max} (завдання№ ${attempt - 1})`;
 }
 
-//create task value like as: ` 17 + 55 - 12 = `
-function several_combination_till100() {
-    firstValue = randomizer(0, 100);
-    secondValue = randomizer(0, 100 - firstValue);
-    thirdValue = randomizer(0, firstValue + secondValue);
-    result = firstValue + secondValue - thirdValue;
-    taskField.innerHTML = `${firstValue} + ${secondValue} - ${thirdValue} =`;
-    legend.innerHTML = `Додавання та віднімання кількох чисел у межах 100 (завдання№ ${attempt - 1})`;
-}
+
 
 
 //create a logic task value like as: ` 72 > 64 `
-export function two_comparison_till100(max) {
+    function two_comparison(max) {
     firstValue = randomizer(0, max);
     secondValue = randomizer(0, max);
     let tmp_choise = randomizer(0, 2);
     legend.innerHTML = `Порівняння двох чисел у межах ${max}, де - 1 так а 0 - ні(завдання№ ${attempt - 1})`;
-    switch (tmp_choise){
-        case 0: {
-            sign = '<'; 
-            if (firstValue < secondValue){
-                result = 1
-            } else result = 0;
-            break
-        }
-        case 1: {
-            sign = '='; 
-            if (firstValue == secondValue){
-                result = 1
-            } else result = 0;
-            break
-        }
-
-        case 2: {
-            sign = '>'; 
-            if (firstValue > secondValue){
-                result = 1
-            } else result = 0;
-            break
-        }
-    }
-
- 
-
-    taskField.innerHTML = `${firstValue} ${sign} ${secondValue}`;
     
+    const comparisonMap = {
+        0: { sign: '<', check: () => firstValue < secondValue },
+        1: { sign: '=', check: () => firstValue === secondValue },
+        2: { sign: '>', check: () => firstValue > secondValue }
+    };
+    
+    const comparison = comparisonMap[tmp_choise];
+    sign = comparison.sign;
+    result = comparison.check() ? 1 : 0;
+    taskField.innerHTML = `${firstValue} ${sign} ${secondValue}`;
 
 }
 
 
+
 //--------------------EXERCISE PART finish--------------------
+function ppp(){
+    alert('pppppppppppppp');
+}

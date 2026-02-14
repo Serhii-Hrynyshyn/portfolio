@@ -28,7 +28,7 @@ menuOptions.forEach(element => {
             inputNameParam.disabled = true;
             let getNameParam = inputNameParam.value;
             let getEmailParam = inputEmailParam.value;
-            // nameOfFile = String(element.className) + '.html?name=' + getNameParam + '&email=' + getEmailParam;
+           
             nameOfFile = `./tasks.html?taskType=${taskType}&name=${getNameParam}&email=${getEmailParam}`;
         } else {
             nameOfFile = `./tasks.html?taskType=${taskType}`;

@@ -9,12 +9,8 @@
     <meta name="theme-color" content="#0066cc">
     <title>Математика: 1-ий клас - Навчальна платформа</title>
     <link rel="stylesheet" href="./styles/style.css">
-
     <script src="./js/index.js" type="module"> </script>
    
-    
-    
- 
 </head>
 
 <body>
@@ -23,18 +19,23 @@
     <div class="wrapper">
         <aside class="aside" role="complementary">
             <section class="logo">
-                <h1>📐 Математика</h1>
+                <div class="logo-icon">📐</div>
+                <h1>Математика</h1>
                 <h2>1-ий клас</h2>
             </section>
             <section class="authentification">
-                <form class="authent-form" method="GET" action="./two_additions_till10.html">
+                <form class="authent-form" method="GET" action="./two_additions_till1000.html">
                     <fieldset>
                         <legend>🔐 Авторизація</legend>
-                        <input type="text" placeholder="Прізвище та ім'я учня" class="student-name" name="s-name">
-                        <input type="email" placeholder="Email учителя" class="teacher-email">
+                        <div class="form-group">
+                            <input type="text" placeholder="Прізвище та ім'я учня" class="student-name" name="s-name">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email учителя" class="teacher-email">
+                        </div>
                         <label class="labelForCheckBox">
                             <input type="checkbox" class="form-checkbox">
-                            результати надсилатимуться
+                            <span>результати надсилатимуться</span>
                         </label>
                     </fieldset>
                 </form>
@@ -43,7 +44,7 @@
                 <ul class="rubricator">✏️ Арифметичні завдання
                     <ul class="sub-rubricator">➕ Додавання:
                         <li class="menuLi">
-                            <a href="" class="two_additions_till10">двох чисел у межах 10</a>
+                            <a href="#" class="two_additions_till10">двох чисел у межах 10</a>
                         </li>
                         <li>
                             <a href="#" class="two_additions_till100">двох чисел у межах 100</a>
@@ -72,7 +73,7 @@
                     </ul>
                     <ul class="sub-rubricator">🎯 Комбінування:
                         <li>
-                            <a href="#" class="several_combination_till100">двох дій у межах 10</a>
+                            <a href="#" class="several_combination_till10">двох дій у межах 10</a>
                         </li>
                         <li>
                             <a href="#" class="several_combination_till100">двох дій у межах 100</a>
@@ -94,55 +95,66 @@
             </nav>
         </aside>
         <main class="content" role="main">
-            <p class="example0">
-                📋 Приклади завдань:
-            </p>
-            <p class="example example1">
-                2 + 2 = 4
-            </p>
-            <p class="example example2">
-                73 + 11 = 84
-            </p>
-            <p class="example example3">
-                4 + 2 + 3 = 9
-            </p>
-            <p class="example example4">
-                12 + 56 + 22 = 90
-            </p>
-            <p class="example example5">
-                8 - 6 = 2
-            </p>
-            <p class="example example6">
-                33 - 21 = 12
-            </p>
-            <p class="example example7">
-                4 - 2 - 1 = 1
-            </p>
-            <p class="example example8">
-                98 - 25 - 13 = 60
-            </p>
-            <p class="example example9">
-                10 - 8 + 4 = 6
-            </p>
-            <p class="example example10">
-                77 - 68 + 36 = 45
-            </p>
+            <section class="examples-section">
+                <h3 class="example0">
+                    📋 Приклади завдань:
+                </h3>
+                <div class="examples-grid">
+                    <p class="example example1">
+                        2 + 2 = 4
+                    </p>
+                    <p class="example example2">
+                        73 + 11 = 84
+                    </p>
+                    <p class="example example3">
+                        4 + 2 + 3 = 9
+                    </p>
+                    <p class="example example4">
+                        12 + 56 + 22 = 90
+                    </p>
+                    <p class="example example5">
+                        8 - 6 = 2
+                    </p>
+                    <p class="example example6">
+                        33 - 21 = 12
+                    </p>
+                    <p class="example example7">
+                        4 - 2 - 1 = 1
+                    </p>
+                    <p class="example example8">
+                        98 - 25 - 13 = 60
+                    </p>
+                    <p class="example example9">
+                        10 - 8 + 4 = 6
+                    </p>
+                    <p class="example example10">
+                        77 - 68 + 36 = 45
+                    </p>
+                </div>
+            </section>
         </main>
     </div>
     <footer role="contentinfo">
         <div class="author-info">© 2026 Сергій Гринишин</div>
         <div class="author-contact">
-            <div class="author-email"><a href="mailto:serhii.hrynyshyn80@gmail.com">✉️ Email</a></div>
-            <div class="author-twitter"><a href="https://sergfreeman.github.io/portfolio/">🌐 Портфоліо</a></div>
+            <div class="reportAreaClass">
+                <button class="button" onclick="
+                let mail = document.createElement('a');
+                mail.href = 'mailto:serhii.hrynyshyn@gmail.com';
+                mail.click();">
+                ✉️Надіслати</button></div>
+            <div class="reportAreaClass">
+                <button class="button" onclick="
+                let mail = document.createElement('a');
+                mail.href = 'https://sergfreeman.github.io/portfolio/';
+                mail.click();">
+                🌐 Портфоліо</button>
+            </div>
         </div>
         <div class="address">
             Україна, м.Київ
         </div>
     </footer>
-
-
-    <script src="./js/tasks.js" type="module"> 
-    import { two_comparison_till100 } from './js/tasks.js';
     
     </script>
 </body>

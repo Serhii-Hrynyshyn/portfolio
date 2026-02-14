@@ -1,11 +1,11 @@
 
 
 //create elements of main menu
-var temporalElement;
+let temporalElement;
 const diceHowTo = "Use the following virtual cube to simulate cubes that have a different number of faces than a regular 6-faceted cube. The most common physical cubes have 4, 6, 8, 10, 12 and 20 faces, respectively, and the 6-faceted cube makes up the majority of the cubes. This virtual cube can have six faces and can generate random numbers, simulating the roll of dice based on the number of points.";
 const diciImplement = 'A dice is typically a small, throwable object that has multiple faces (most commonly six) and possible positions that indicate a number (or something else), used for generating random numbers and events. They are typically used for tabletop games, which include a wide variety of games, as well as for gambling. Examples of tabletop games that involve the use of dice include games like backgammon, Boggle, and Yahtzee, where dice are a central component of the game. Some other well-known tabletop games include Monopoly, Risk, Dungeons and Dragons, and Settlers of Catan. There are however, numerous others.';
 const authorSite = 'https://github.com/sergfreeman/portfolio';
-const authorMail = 'serhii.hrynyshyn80@gmail.com';
+const authorMail = 'hrynyshyn.serhii@gmail.com';
 
 
 
@@ -127,7 +127,7 @@ function makeTheAlert(myAlert) {
                 txt = authorMail;
             } else txt = authorSite;
     
-    // document.getElementById('getRandom').innerHTML = 'none';        
+       
     nav.style.display = 'none';
     main.style.display = 'none';
     msg.style.display = 'block';
@@ -169,7 +169,7 @@ function getRandomInt(min, max) {
 let getRandom = document.getElementById('getRandom');
 getRandom.addEventListener('click', function () {
     for (let elem of boxArr) {
-        // document.getElementById(elem).style.backgroundColor = 'darkGrey';
+        
         document.getElementById(elem).style.backgroundColor = document.body.style.backgroundColor;
     }
     makeBone();
@@ -203,7 +203,7 @@ function filler(...elem) {
         let tmp = document.getElementById(number);
         tmp.style.backgroundColor = fieldColor;
 
-        // tmp.style.backgroundColor = SVGLinearGradientElement
+       
 
         tmp.style.borderColor = 'red';
         tmp.style.visibility = 'visible';
@@ -217,7 +217,7 @@ window.onload = function () {
 }
 
 function changeBgColor() {
-    // alert('bg');
+    
     switch (getRandomInt(0, 2)) {
         case 0: getRandom.style.backgroundColor = 'red'; break;
         case 1: getRandom.style.backgroundColor = 'green'; break;
