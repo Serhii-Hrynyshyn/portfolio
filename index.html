@@ -1,186 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script type="module" src="js/index.js"></script>
-<link rel="stylesheet" href="css/styles.css">
-<link type="image/x-icon" rel="icon" href="img/logo_i128px.ico">
-<title>portfolio of Serhii Hrynyshyn</title>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Serhii Hrynyshyn - Web Developer showcasing HTML, CSS, and JavaScript projects">
+    <meta name="theme-color" content="#1a1a2e">
+    <title>Portfolio of Serhii Hrynyshyn - Web Developer</title>
+    <link rel="icon" type="image/x-icon" href="img/logo_i128px.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="module" src="js/index.js" defer></script>
 </head>
 
 <body>
     <div class="wrapper">
-        <div class="header-fill">
-            <header>
-                <div class="logo">
-                    <a href="#" class="logo">
-                        <p class="top-string" class="headerStrings">WEB</p>
-                        <p class="bottom-string" class="headerStrings">portfolio</p>
-                    </a>
-                </div>
+        <!-- Header Section -->
+        <header class="header-fill">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <p class="logo-top">WEB</p>
+                    <p class="logo-bottom">portfolio</p>
+                </a>
 
-                <p class="string-name" class="headerStrings"><span class="by">by</span><strong>Serhii Hrynyshyn</strong>
+                <p class="header-name">
+                    <span class="by">by</span>
+                    <strong>Serhii Hrynyshyn</strong>
                 </p>
-                <div class="datePlace" class="headerStrings">
-                    <p class="timeTitle">current on</p>
-                    <time class="theTime"></time>
+
+                <div class="date-place">
+                    <p class="time-label">current on</p>
+                    <time class="theTime" datetime="now"></time>
                 </div>
-            </header>
-        </div>
-        <div class="about-fill">
-            <div class="about">
-
-                <section class="section-about">
-                    <h2>About:</h2>
-                    <p>
-                    <h3>
-                        This site was created from learning attempts as a clear example of my level of knowledge.
-                        During writing this i was studied some cybernetic subjects such as a:
-                    </h3>
-                    </p>
-
-                    <p>
-                    <ul>
-                        <a href="https://en.wikipedia.org/wiki/HTML">
-                            <li class="html li-trinity">HTML<span class="span-trinity">(HyperText Markup
-                                    Language)</span>;</li>
-                        </a>
-                        <a href="https://en.wikipedia.org/wiki/CSS">
-                            <li class="css li-trinity">CSS<span class="span-trinity">(Cascading Style Sheets)</span>;
-                            </li>
-                        </a>
-                        <a href="https://en.wikipedia.org/wiki/JavaScript">
-                            <li class="js li-trinity">JS<span class="span-trinity">(JavaScript)</span>.</li>
-                        </a>
-
-                    </ul>
-                    </p>
-
-                    <h3>
-                        They are have a power for help me to create something interesting, like as a good pages with an
-                        important context.
-
-                        <a href="#">
-                            Current<em>&nbspWEB portfolio&nbsp</em>
-                        </a>
-                        is no ideal, but I will do my job better and better in the future.
-                    </h3>
-
-                </section>
             </div>
-        </div>
+        </header>
 
-        <!-- </div> -->
+        <!-- About Section -->
+        <section class="about-section">
+            <h2>About Me</h2>
+            <p>This portfolio showcases my learning journey and web development skills. During my studies, I focused on the core technologies of web development:</p>
+            
+            <ul class="tech-stack">
+                <li class="tech-item html">
+                    <a href="https://en.wikipedia.org/wiki/HTML">
+                        <strong>HTML</strong>
+                        <span class="tech-description">(HyperText Markup Language)</span>
+                    </a>
+                </li>
+                <li class="tech-item css">
+                    <a href="https://en.wikipedia.org/wiki/CSS">
+                        <strong>CSS</strong>
+                        <span class="tech-description">(Cascading Style Sheets)</span>
+                    </a>
+                </li>
+                <li class="tech-item js">
+                    <a href="https://en.wikipedia.org/wiki/JavaScript">
+                        <strong>JavaScript</strong>
+                        <span class="tech-description">(JS)</span>
+                    </a>
+                </li>
+            </ul>
 
+            <p>These technologies enable me to create engaging web pages with meaningful content. While this portfolio is not perfect, I'm committed to continuous improvement.</p>
+        </section>
 
-        <div class="content">
+        <!-- Main Content -->
+        <main class="content">
+            <!-- Projects Section -->
+            <section class="projects-container">
+                <aside class="projects-sidebar">
+                    <h3>My PET Projects:</h3>
 
-            <section class="main">
-
-                <section class="section-left">
-                    <p class="left-header">
-                        Take a look at my list of PET projects:
-                    </p>
-
-                    <!-- Main MENU start -->
-                    <section>
-                        <label for="ul-landing">
-                            Landing pages
-                        </label>
-                        <ul class="ul-landing" class="main-menu">
-                            <a href="./projects/pet/ukr-folk-songs/index.html" target="_blank">
-                                <li class="li-style-landing" class="main-menu-landing" name='ukr_folk_song'>
+                    <!-- Landing Pages -->
+                    <section class="project-category">
+                        <h4>Landing Pages</h4>
+                        <ul class="project-list">
+                            <li>
+                                <a href="./projects/pet/ukr-folk-songs/index.html" target="_blank" rel="noopener noreferrer">
                                     Ukrainian folk songs
-                                </li>
-                            </a>
-                            <a href="./projects/pet/dice/index.html" target="_blank">
-                                <li class="li-style-landing" class="main-menu-landing" name='the_dice'>The Dice</li>
-                            </a>
-                            <a href="./projects/pet/math1th/index.html" target="_blank">
-                                <li class="li-style-landing" class="main-menu-landing" name='math_first_form'>Mathematic
-                                    1-st form</li>
-                            </a>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./projects/pet/dice/index.html" target="_blank" rel="noopener noreferrer">
+                                    The Dice
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./projects/pet/math1th/index.html" target="_blank" rel="noopener noreferrer">
+                                    Mathematics 1st Form
+                                </a>
+                            </li>
                         </ul>
-
-                        <label for="ul-landing">
-                            Multi pages
-                        </label>
-                        <ul class="ul-landing" class="main-menu">
-                            <a href="./projects/pet/AllWillBeFound/index.html" target="_blank">
-                                <li class="li-style-landing" class="main-menu-landing" name='all_will_be_found'>All will be found</li>
-                            </a>
-                            <a href="">
-                                <li class="li-style-multi" class="main-menu-multi" name='multi middle'>some element</li>
-                            </a>
-                            <a href="">
-                                <li class="li-style-multi" class="main-menu-multi" name='multi last'>some last element
-                                </li>
-                            </a>
-                        </ul>
-
                     </section>
- 
-                </section>
-                <section class="section-middle">
-                    <img class="face" src="./img/ava.jpg" alt="author face">
-                </section>
-                <section class="section-right">
-                    <div class="contactSertificate">
-                        <p class="contact">
-                            Contact:
-                        </p>
-                        <em class="in-contact">
-                            Serhii Hrynyshyn,
-                        </em>
-                        <address class="in-contact">
-                            Kyiv, Ukraine.
-                        </address>
-                        <a href="https://sergfreeman.github.io/portfolio/" title="Visit my GIT-web">
-                            <cite class="in-contact">
-                                <span class="cite">sergfreeman.github.io/portfolio</span>
-                            </cite>
-                        </a>
-  
-                        <p>
-                            <a class='cite mail' href="mailto:serhii.hrynyshyn80@gmail.com"
-                                title="Send me your comments or suggestions"> mail to me </a>
-                        </p>
-                        <br>
-                        <p class="contact">
-                            Sertificate:
-                        </p>
-                        <p>
-                            <a class='cite' href="https://testprovider.com/ua/search-certificate/TP18506150"
-                                target="_blank" title="HTML5&CSS Starter">
-                                HTML5+CSS
-                            </a>
-                        </p>
 
-                        <p>
-                            <a class='cite' href="./img/Certificate - Prometheus.pdf"
-                                target="_blank" title="«Основи Web UI розробки 2022»">
-                                WEB UI
-                            </a>
-                        </p>
+                    <!-- Multi-page Sites -->
+                    <section class="project-category">
+                        <h4>Multi-page Sites</h4>
+                        <ul class="project-list">
+                            <li>
+                                <a href="./projects/pet/AllWillBeFound/index.html" target="_blank" rel="noopener noreferrer">
+                                    All Will Be Found
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="disabled">Coming soon...</a>
+                            </li>
+                        </ul>
+                    </section>
+                </aside>
 
-                      
+                <!-- Profile Section -->
+                <article class="profile-section">
+                    <img class="profile-avatar" src="./img/ava.jpg" alt="Serhii Hrynyshyn - Web Developer">
+                </article>
 
-                    </div>
+                <!-- Contact Section -->
+                <aside class="contact-section">
+                    <section class="contact-info">
+                        <h3>Contact</h3>
+                        <p class="info-name">Serhii Hrynyshyn</p>
+                        <address class="info-address">Kyiv, Ukraine</address>
+                        
+                        <div class="contact-links">
+                            <a href="https://www.linkedin.com/in/serhii-hrynyshyn-1a11413b1/" target="_blank" rel="noopener noreferrer" title="Visit my LinkedIn profile" class="contact-link">LinkedIn</a>
+                            <a href="mailto:hrynyshyn.serhii@gmail.com" title="Send me your message" class="contact-link mail-link">Send me an email</a>
+                        </div>
+                        <h3 class="contact-info">GitHub</h3>
+                        
+                        <a href="https://sergfreeman.github.io/portfolio/" title="Visit my GitHub portfolio" class="contact-link"><em>Frontend:</em> sergfreeman.github.io/portfolio</a>
+                        <a href="https://github.com/Serhii-Hrynyshyn" title="Visit my other GitHub" class="contact-link"><em>Backend:</em> github.com/Serhii-Hrynyshyn</a>
+                    </section>
 
-                </section>
+                    <section class="certificates">
+                        <h3>Certificates</h3>
+                        <ul class="certificate-list">
+                            <li>
+                                <a href="https://testprovider.com/ua/search-certificate/TP18506150" target="_blank" rel="noopener noreferrer" title="HTML5 & CSS Certificate">
+                                    HTML5 + CSS3
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./img/Certificate - Prometheus.pdf" target="_blank" rel="noopener noreferrer" title="WEB UI Development Certificate">
+                                    WEB UI Development
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+                </aside>
             </section>
+        </main>
 
-
-        </div>
-        <footer>
-            <br>
-            <p class='footer-text'>
-                Thank you for visiting this page, have a nice day.
-            </p>
-            <br>
-
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Thank you for visiting my portfolio. Have a great day!</p>
         </footer>
-
     </div>
 </body>
 
