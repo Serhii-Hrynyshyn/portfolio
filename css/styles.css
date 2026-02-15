@@ -104,6 +104,11 @@ header {
 }
 
 /* ABOUT */
+
+.about-fill {
+    background-color: rgb(20, 46, 51);
+}
+
 .about-section {
     background-color: var(--dark-bg);
     max-width: var(--max-width);
