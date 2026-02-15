@@ -40,7 +40,7 @@ a {
 }
 
 header {
-    margin: 5px;
+    
     width: var(--max-width);
     font-family: myHeaderFont;
     display: flex;

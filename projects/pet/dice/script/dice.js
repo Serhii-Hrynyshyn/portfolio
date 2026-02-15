@@ -124,8 +124,8 @@ function makeTheAlert(myAlert) {
             txt = diciImplement;
         } else
             if (myAlert === 'mail') {
-                txt = authorMail;
-            } else txt = authorSite;
+                txt = `<a href="mailto:${authorMail}" target="_blank">${authorMail}</a>`;
+            } else txt = `<a href="${authorSite}" target="_blank">${authorSite}</a>`;
     
        
     nav.style.display = 'none';
