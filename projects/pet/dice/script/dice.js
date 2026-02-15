@@ -4,7 +4,7 @@
 let temporalElement;
 const diceHowTo = "Use the following virtual cube to simulate cubes that have a different number of faces than a regular 6-faceted cube. The most common physical cubes have 4, 6, 8, 10, 12 and 20 faces, respectively, and the 6-faceted cube makes up the majority of the cubes. This virtual cube can have six faces and can generate random numbers, simulating the roll of dice based on the number of points.";
 const diciImplement = 'A dice is typically a small, throwable object that has multiple faces (most commonly six) and possible positions that indicate a number (or something else), used for generating random numbers and events. They are typically used for tabletop games, which include a wide variety of games, as well as for gambling. Examples of tabletop games that involve the use of dice include games like backgammon, Boggle, and Yahtzee, where dice are a central component of the game. Some other well-known tabletop games include Monopoly, Risk, Dungeons and Dragons, and Settlers of Catan. There are however, numerous others.';
-const authorSite = 'https://github.com/sergfreeman/portfolio';
+const authorSite = 'https://serhii-hrynyshyn.github.io/portfolio/';
 const authorMail = 'hrynyshyn.serhii@gmail.com';
 
 
